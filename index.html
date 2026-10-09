@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special for You ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 15px;
+            /* Latar Belakang Gradient Soft & Estetik */
+            background: linear-gradient(-45deg, #ff9a9e, #fecfef, #a1c4fd, #c2e9fb);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animasi Latar Berganti Warna Halus */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Elemen Hiasan Hati Melayang di Latar Belakang */
+        .bg-heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 20px;
+            animation: floatUp 8s linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .bg-heart:nth-child(1) { left: 10%; font-size: 24px; animation-duration: 7s; animation-delay: 0s; }
+        .bg-heart:nth-child(2) { left: 25%; font-size: 16px; animation-duration: 9s; animation-delay: 2s; }
+        .bg-heart:nth-child(3) { left: 40%; font-size: 28px; animation-duration: 8s; animation-delay: 4s; }
+        .bg-heart:nth-child(4) { left: 60%; font-size: 20px; animation-duration: 10s; animation-delay: 1s; }
+        .bg-heart:nth-child(5) { left: 75%; font-size: 32px; animation-duration: 7s; animation-delay: 3s; }
+        .bg-heart:nth-child(6) { left: 90%; font-size: 18px; animation-duration: 11s; animation-delay: 5s; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Container dengan Efek Glassmorphism Estetik */
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(255, 154, 158, 0.3), 0 5px 15px rgba(0, 0, 0, 0.05);
+            max-width: 100%;
+            width: 330px;
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        h1 {
+            color: #ff4b2b;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .btn-start, .btn-nav {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 65, 108, 0.35);
+            transition: all 0.2s ease;
+            margin: 5px;
+        }
+        .btn-start:active, .btn-nav:active {
+            transform: scale(0.95);
+        }
+
+        /* Area Animasi Penguin Jalan */
+        .loading-box {
+            margin: 20px 0;
+            position: relative;
+            width: 100%;
+            height: 70px;
+        }
+
+        .penguin-track {
+            position: absolute;
+            left: 0;
+            bottom: 15px;
+            transition: left 0.1s linear;
+        }
+
+        .penguin-jalan {
+            font-size: 45px;
+            display: inline-block;
+            animation: langkah 0.4s infinite alternate ease-in-out;
+        }
+
+        @keyframes langkah {
+            0% { transform: translateY(0) rotate(-10deg); }
+            100% { transform: translateY(-8px) rotate(10deg); }
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #ffe0e6;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 10px;
+            position: absolute;
+            bottom: 0;
+        }
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            transition: width 0.1s linear;
+        }
+
+        .card-content {
+            display: none;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .img-container {
+            position: relative;
+            width: 100%;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            margin-bottom: 12px;
+        }
+        p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            min-height: 45px; /* Menjaga ukuran box tetap konsisten */
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Efek Hati Melayang Estetik -->
+    <div class="bg-heart">❤️</div>
+    <div class="bg-heart">💕</div>
+    <div class="bg-heart">✨</div>
+    <div class="bg-heart">💖</div>
+    <div class="bg-heart">🌸</div>
+    <div class="bg-heart">❤️</div>
+
+    <div class="container">
+        <!-- Tampilan Awal -->
+        <div id="start-box">
+            <h1>cemoga kamu cuka 😸</h1>
+            <p>click tombol di bawah yach :3</p>
+            <button class="btn-start" onclick="mulaiAplikasi()">👉 buka di cini 👈</button>
+        </div>
+
+        <!-- Tampilan Penguin Jalan Ke Depan -->
+        <div id="countdown-box" style="display: none;">
+            <h1>cabar yachh.. ^^ 😳 </h1>
+            <div class="loading-box">
+                <div class="penguin-track" id="penguin-track">
+                    <div class="penguin-jalan">🐧</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" id="progress-line"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tampilan Konten Setelah Loading -->
+        <div id="content-box" class="card-content">
+            <div class="img-container">
+                <img id="foto-display" src="Example.jpg" alt="Foto Vanisa">
+            </div>
+
+            <!-- Tombol Navigasi 2 Foto -->
+            <div class="nav-buttons">
+                <button class="btn-nav" onclick="gantiFoto(-1)">❮ Foto 1</button>
+                <button class="btn-nav" onclick="gantiFoto(1)">Foto 2 ❯</button>
+            </div>
+
+            <!-- Pesan Teks yang Berubah Bersama Foto -->
+            <p id="teks-display">Ini bunga mawar cpecial khusus kamu.. 🌹 bunganyaa memang indah , tetapii macihhh lebih indahh senyum maniss muu :3 🤏😜🤍</p>
+            
+            <!-- Pemutar Lagu -->
+            <audio id="myAudio" loop>
+                <source src="i thought i saw your face today she and him.mp3" type="audio/mpeg">
+                Browser kamu tidak mendukung pemutar audio.
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        const audio = document.getElementById("myAudio");
+        
+        // Pasangan Foto dan Kata-Kata Masing-Masing
+        const kontenList = [
+            {
+                foto: "vanisa.jpg",
+                teks: "You're my beautiful, amazing, funny, smart, princess girlfriend! I love you so much! ✨❤️"
+            },
+            {
+                foto: "Foto kita.jpg",
+                teks: "Maaf yachhh kalau akuu macihhh suka kurang peka atau macih beyum paham kamu cepenuhnya 🥺 tapi acu bakal  teyusss belajar buat jadi yang terbaik buat kamu , i lovee uuu sooo much  cayangku  💕✨"
+            }
+        ];
+        
+        let fotoIndex = 0;
+
+        function gantiFoto(arah) {
+            fotoIndex += arah;
+            if (fotoIndex < 0) {
+                fotoIndex = kontenList.length - 1;
+            } else if (fotoIndex >= kontenList.length) {
+                fotoIndex = 0;
+            }
+            // Ganti foto & ganti kata-katanya
+            document.getElementById("foto-display").src = kontenList[fotoIndex].foto;
+            document.getElementById("teks-display").innerHTML = kontenList[fotoIndex].teks;
+        }
+
+        function mulaiAplikasi() {
+            if (audio) {
+                audio.play().catch(err => console.log("Audio deferred:", err));
+            }
+
+            document.getElementById("start-box").style.display = "none";
+            document.getElementById("countdown-box").style.display = "block";
+
+            let persen = 0;
+            const progressLine = document.getElementById("progress-line");
+            const penguinTrack = document.getElementById("penguin-track");
+
+            const timer = setInterval(() => {
+                persen += 1;
+                
+                progressLine.style.width = persen + "%";
+                penguinTrack.style.left = (persen * 0.85) + "%";
+
+                if (persen >= 100) {
+                    clearInterval(timer);
+                    document.getElementById("countdown-box").style.display = "none";
+                    document.getElementById("content-box").style.display = "block";
+                }
+            }, 50);
+        }
+    </script>
+
+</body>
+</html>
